@@ -31,3 +31,5 @@ C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\obj\Debug\net7.0\refint\net-
 C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\obj\Debug\net7.0\net-rpg.pdb
 C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\obj\Debug\net7.0\net-rpg.genruntimeconfig.cache
 C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\obj\Debug\net7.0\ref\net-rpg.dll
+C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
