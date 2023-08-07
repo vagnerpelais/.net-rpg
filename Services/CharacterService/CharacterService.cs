@@ -9,17 +9,14 @@ namespace net_rpg.Services.CharacterService
 {
     public class CharacterService : ICharacterService
     {
-        private static List<Character> characters = new List<Character>
-        {
-            new Character(),
-            new Character {Id = 1, Name = "Frodo"}
-        };
 
         private readonly IMapper _mapper;
+        private readonly DataContext _context;
 
-        public CharacterService(IMapper mapper)
+        public CharacterService(IMapper mapper, DataContext context)
         {
             _mapper = mapper;
+            _context = context;
         }
    
         
@@ -28,9 +25,20 @@ namespace net_rpg.Services.CharacterService
             var serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
             var character = _mapper.Map<Character>(newCharacter);
 
-            character.Id = characters.Max(c => c.Id) + 1;
-            characters.Add(character);
-            serviceResponse.Data = characters.Select(c => _mapper.Map<GetCharacterDto>(c)).ToList();
+            var dbCharacter = await _context.Characters.FirstOrDefaultAsync(c => c.Name.ToLower() == newCharacter.Name.ToLower());
+            if(dbCharacter is not null)
+            {
+                serviceResponse.Success = false;
+                serviceResponse.Message = "Character already exists";
+                return serviceResponse;
+            }
+       
+            
+            await _context.Characters.AddAsync(character);
+            await _context.SaveChangesAsync();
+
+            var dbCharacters = await _context.Characters.ToListAsync();
+            serviceResponse.Data = dbCharacters.Select(c => _mapper.Map<GetCharacterDto>(c)).ToList();
             return serviceResponse;
         }
 
@@ -39,15 +47,17 @@ namespace net_rpg.Services.CharacterService
            var serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
             
             try {
-                var character = characters.FirstOrDefault(c => c.Id == id);
-                if(character is null)
+                var dbCharacter = await _context.Characters.SingleOrDefaultAsync(c => c.Id == id);
+                if(dbCharacter is null)
                 {
                     throw new Exception($"Character with Id '{id}' not found");
                 }
-           
-                characters.Remove(character);
+                 
+                _context.Characters.Remove(dbCharacter);
+                await _context.SaveChangesAsync();
 
-                serviceResponse.Data = characters.Select(c => _mapper.Map<GetCharacterDto>(c)).ToList();
+                var dbCharacters = await _context.Characters.ToListAsync();
+                serviceResponse.Data = dbCharacters.Select(c => _mapper.Map<GetCharacterDto>(c)).ToList();
             } catch (Exception ex) {
                 serviceResponse.Success = false;
                 serviceResponse.Message = ex.Message;
@@ -59,7 +69,8 @@ namespace net_rpg.Services.CharacterService
         public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters()
         {
             var serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
-            serviceResponse.Data = characters.Select(c => _mapper.Map<GetCharacterDto>(c)).ToList();
+            var dbCharacters = await _context.Characters.ToListAsync();
+            serviceResponse.Data = dbCharacters.Select(c => _mapper.Map<GetCharacterDto>(c)).ToList();
 
             return serviceResponse;
         }
@@ -68,12 +79,12 @@ namespace net_rpg.Services.CharacterService
         {
             var serviceResponse = new ServiceResponse<GetCharacterDto>();
             try{
-                var character =  characters.FirstOrDefault(c => c.Id == id);
-                if(character is null) {
+                var dbCharacter = await _context.Characters.FirstOrDefaultAsync(c => c.Id == id);
+                if(dbCharacter is null) {
                     throw new Exception($"Character with Id '{id}' not found");
                 }
 
-                serviceResponse.Data = _mapper.Map<GetCharacterDto>(character);
+                serviceResponse.Data = _mapper.Map<GetCharacterDto>(dbCharacter);
             } catch(Exception ex) {
                 serviceResponse.Success = false;
                 serviceResponse.Message = ex.Message;
@@ -87,15 +98,24 @@ namespace net_rpg.Services.CharacterService
             var serviceResponse = new ServiceResponse<GetCharacterDto>();
             
             try {
-                var character = characters.FirstOrDefault(c => c.Id == updatedCharacter.Id);
-                if(character is null)
+                var dbCharacter = await _context.Characters.FirstOrDefaultAsync(c => c.Id == updatedCharacter.Id);
+                if(dbCharacter is null)
                 {
                     throw new Exception($"Character with Id '{updatedCharacter.Id}' not found");
                 }
 
-                _mapper.Map<Character>(updatedCharacter);
+                if(dbCharacter.Name.ToLower() == updatedCharacter.Name.ToLower())
+                {
+                    serviceResponse.Success = false;
+                    serviceResponse.Message = "Character name already exists";
+                    return serviceResponse;
+                }
 
-                serviceResponse.Data = _mapper.Map<GetCharacterDto>(character);
+                _mapper.Map(updatedCharacter, dbCharacter);
+
+                await _context.SaveChangesAsync();
+
+                serviceResponse.Data = _mapper.Map<GetCharacterDto>(dbCharacter);
             } catch (Exception ex) {
                 serviceResponse.Success = false;
                 serviceResponse.Message = ex.Message;

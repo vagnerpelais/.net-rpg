@@ -39,14 +39,24 @@ namespace net_rpg.Controllers
         [HttpPost("AddCharacter")]
         public async  Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> AddCharacter(AddCharacterDto newCharacter)
         {
-            return Ok(await _characterService.AddCharacter(newCharacter));
+            var response = await _characterService.AddCharacter(newCharacter);
+            if(response.Data is null)
+            {
+                return Conflict(response);
+            }
+
+            return Ok(response);
         }
          
         [HttpPut("UpdateCharacter")]
         public async Task<ActionResult<ServiceResponse<GetCharacterDto>>> UpdateCharacter(UpdateCharacterDto updatedCharacter)
         {
             var response = await _characterService.UpdateCharacter(updatedCharacter);
-            if(response.Data is null) {
+            if(response.Message == "Character name already exists")
+            {
+                return Conflict(response);
+            }
+            else if(response.Data is null) {
                 return NotFound(response);
             }
 
