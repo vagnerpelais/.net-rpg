@@ -33,3 +33,13 @@ C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\obj\Debug\net7.0\net-rpg.gen
 C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\obj\Debug\net7.0\ref\net-rpg.dll
 C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\AutoMapper.dll
 C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\Humanizer.dll
+C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\Mono.TextTemplating.dll
+C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\System.CodeDom.dll
+C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\Npgsql.dll
+C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
