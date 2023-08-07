@@ -19,18 +19,49 @@ namespace net_rpg.Controllers
         }
 
         [HttpGet("GetAll")]
-        public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> Get() {
+        public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> Get()
+        {
             return Ok(await _characterService.GetAllCharacters());
         }
 
         [HttpGet("GetSingle/{id}")]
-        public async Task<ActionResult<ServiceResponse<GetCharacterDto>>> GetSingle(int id) {
-            return Ok(await _characterService.GetCharacterById(id));
+        public async Task<ActionResult<ServiceResponse<GetCharacterDto>>> GetSingle(int id)
+        {
+            var response = await _characterService.GetCharacterById(id);
+            if(response.Data is null)
+            {
+                return NotFound(response);
+            }
+
+            return Ok(response);
         }
 
         [HttpPost("AddCharacter")]
-        public async  Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> AddCharacter(AddCharacterDto newCharacter) {
+        public async  Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> AddCharacter(AddCharacterDto newCharacter)
+        {
             return Ok(await _characterService.AddCharacter(newCharacter));
+        }
+         
+        [HttpPut("UpdateCharacter")]
+        public async Task<ActionResult<ServiceResponse<GetCharacterDto>>> UpdateCharacter(UpdateCharacterDto updatedCharacter)
+        {
+            var response = await _characterService.UpdateCharacter(updatedCharacter);
+            if(response.Data is null) {
+                return NotFound(response);
+            }
+
+            return Ok(response);
+        }
+
+        [HttpDelete("DeleteCharacter/{id}")]
+        public async Task<ActionResult<ServiceResponse<GetCharacterDto>>> DeleteCharacter(int id)
+        {
+            var response = await _characterService.DeleteCharacter(id);
+            if(response.Data is null) {
+                return NotFound(response);
+            }
+
+            return Ok(response);
         }
     }
 }
