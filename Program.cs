@@ -20,6 +20,7 @@ builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddScoped<ICharacterService, CharacterService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<Encryption>();
+builder.Services.AddScoped<JwtToken>();
 
 
 var app = builder.Build();

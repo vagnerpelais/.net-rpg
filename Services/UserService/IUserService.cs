@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace net_rpg.Services.UserService
 {
     public interface IUserService
@@ -12,5 +7,6 @@ namespace net_rpg.Services.UserService
         Task<ServiceResponse<List<GetUserDto>>> AddUser(RequestUserDto newCharacter);
         Task<ServiceResponse<GetUserDto>> UpdateUser(RequestUserDto newCharacter, int id);
         Task<ServiceResponse<List<GetUserDto>>> DeleteUser(int id);
+        Task<ServiceResponse<string>> VerifyUserLogin(RequestUserDto request);
     }
 }

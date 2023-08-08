@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using net_rpg.utils;
 
@@ -12,12 +8,14 @@ namespace net_rpg.Services.UserService
         private readonly IMapper _mapper;
         private readonly DataContext _context;
         private readonly Encryption _encryption;
+        private readonly JwtToken _jwtToken;
 
-        public UserService(IMapper mapper, DataContext context, Encryption encryption)
+        public UserService(IMapper mapper, DataContext context, Encryption encryption, JwtToken jwtToken)
         {
             _mapper = mapper;
             _context = context;
             _encryption = encryption;
+            _jwtToken = jwtToken;
         }
    
         
@@ -124,6 +122,31 @@ namespace net_rpg.Services.UserService
                 serviceResponse.Success = false;
                 serviceResponse.Message = ex.Message;
             }
+
+            return serviceResponse;
+        }
+
+        public async Task<ServiceResponse<string>> VerifyUserLogin(RequestUserDto request)
+        {
+            var serviceResponse = new ServiceResponse<string>();
+            var dbUser = await _context.Users.SingleOrDefaultAsync(c => c.Username == request.Username);
+            
+            if(dbUser is null)
+            {
+                throw new Exception($"Something went wrong, verify the username and password again");
+            }
+
+            var isVerified = _encryption.Compare(request.Password, dbUser.HashedPassword);
+            if(!isVerified)
+            {
+                throw new Exception("Something went wrong, verify the username and password again");
+            }
+            
+            var token = _jwtToken.CreateToken(dbUser);
+
+            serviceResponse.Data = token;
+            serviceResponse.Success = true;
+            serviceResponse.Message = "Token created";
 
             return serviceResponse;
         }

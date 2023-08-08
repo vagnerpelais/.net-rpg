@@ -44,3 +44,8 @@ C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\System.Code
 C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\Npgsql.dll
 C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\BCrypt.Net-Next.dll
+C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll

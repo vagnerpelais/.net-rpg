@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using net_rpg.Services.UserService;
-using net_rpg.utils;
 
 namespace net_rpg.Controllers
 {
@@ -33,17 +28,16 @@ namespace net_rpg.Controllers
             return Created("", response);
         }
 
-        //  [HttpPost("/register")]
-        // public async Task<ActionResult<ServiceResponse<User>>> Register(RequestUserDto newUser)
-        // {
+        [HttpPost("login")]
+        public async Task<ActionResult<ServiceResponse<User>>> Login(RequestUserDto request)
+        {
+            var response = await _userService.VerifyUserLogin(request);
+            if(response.Data is null)
+            {
+                return BadRequest(response);
+            }
 
-        //     var response = await _userService.AddUser(newUser);
-        //     if(response.Data is null)
-        //     {
-        //         return Conflict(response);
-        //     }
-
-        //     return Created("", response);
-        // }
+            return Ok(response);
+        }
     }
 }
