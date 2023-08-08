@@ -42,23 +42,23 @@ Start the API application:
 
 ## API Endpoints
 
-- `GET` /api/character/GetAll
+- `GET` /api/characters/get
 
 Get a list of all characters.
 
-- `GET` /api/character/GetSingle/{id}
+- `GET` /api/characters/get/{id}
 
 Get details of a single character by ID.
 
-- `POST` /api/character/AddCharacter
+- `POST` /api/characters/create
 
 Add a new character.
 
-- `PUT` /api/character/UpdateCharacter
+- `PUT` /api/characters/update
 
 Update an existing character.
 
-- `DELETE` /api/character/DeleteCharacter/{id}
+- `DELETE` /api/characters/delete/{id}
 
 Delete a character by ID.
 

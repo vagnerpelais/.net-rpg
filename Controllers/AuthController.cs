@@ -8,7 +8,7 @@ using net_rpg.utils;
 
 namespace net_rpg.Controllers
 {
-    [Route("/api/auth")]
+    [Route("api/auth")]
     [ApiController]
     public class AuthController : ControllerBase
     {
@@ -20,7 +20,7 @@ namespace net_rpg.Controllers
             _userService = userService;
         }
 
-        [HttpPost("/register")]
+        [HttpPost("register")]
         public async Task<ActionResult<ServiceResponse<User>>> Register(RequestUserDto newUser)
         {
 
@@ -32,5 +32,18 @@ namespace net_rpg.Controllers
 
             return Created("", response);
         }
+
+        //  [HttpPost("/register")]
+        // public async Task<ActionResult<ServiceResponse<User>>> Register(RequestUserDto newUser)
+        // {
+
+        //     var response = await _userService.AddUser(newUser);
+        //     if(response.Data is null)
+        //     {
+        //         return Conflict(response);
+        //     }
+
+        //     return Created("", response);
+        // }
     }
 }

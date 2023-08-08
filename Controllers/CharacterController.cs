@@ -8,7 +8,7 @@ using net_rpg.Services.CharacterService;
 namespace net_rpg.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/characters")]
     public class CharacterController : ControllerBase
     {
         private readonly ICharacterService _characterService;
@@ -18,13 +18,13 @@ namespace net_rpg.Controllers
             _characterService = characterService;
         }
 
-        [HttpGet("GetAll")]
+        [HttpGet("get")]
         public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> Get()
         {
             return Ok(await _characterService.GetAllCharacters());
         }
 
-        [HttpGet("GetSingle/{id}")]
+        [HttpGet("get/{id}")]
         public async Task<ActionResult<ServiceResponse<GetCharacterDto>>> GetSingle(int id)
         {
             var response = await _characterService.GetCharacterById(id);
@@ -36,7 +36,7 @@ namespace net_rpg.Controllers
             return Ok(response);
         }
 
-        [HttpPost("AddCharacter")]
+        [HttpPost("create")]
         public async  Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> AddCharacter(AddCharacterDto newCharacter)
         {
             var response = await _characterService.AddCharacter(newCharacter);
@@ -48,7 +48,7 @@ namespace net_rpg.Controllers
             return Ok(response);
         }
          
-        [HttpPut("UpdateCharacter")]
+        [HttpPut("update")]
         public async Task<ActionResult<ServiceResponse<GetCharacterDto>>> UpdateCharacter(UpdateCharacterDto updatedCharacter)
         {
             var response = await _characterService.UpdateCharacter(updatedCharacter);
@@ -63,7 +63,7 @@ namespace net_rpg.Controllers
             return Ok(response);
         }
 
-        [HttpDelete("DeleteCharacter/{id}")]
+        [HttpDelete("delete/{id}")]
         public async Task<ActionResult<ServiceResponse<GetCharacterDto>>> DeleteCharacter(int id)
         {
             var response = await _characterService.DeleteCharacter(id);
