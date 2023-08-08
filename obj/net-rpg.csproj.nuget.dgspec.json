@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vagne\\OneDrive\\Documents\\code\\.net\\net-rpg\\net-rpg.csproj": {}
+    "c:\\Users\\vagne\\OneDrive\\Documents\\code\\.net\\net-rpg\\net-rpg.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vagne\\OneDrive\\Documents\\code\\.net\\net-rpg\\net-rpg.csproj": {
+    "c:\\Users\\vagne\\OneDrive\\Documents\\code\\.net\\net-rpg\\net-rpg.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vagne\\OneDrive\\Documents\\code\\.net\\net-rpg\\net-rpg.csproj",
+        "projectUniqueName": "c:\\Users\\vagne\\OneDrive\\Documents\\code\\.net\\net-rpg\\net-rpg.csproj",
         "projectName": "net-rpg",
-        "projectPath": "C:\\Users\\vagne\\OneDrive\\Documents\\code\\.net\\net-rpg\\net-rpg.csproj",
+        "projectPath": "c:\\Users\\vagne\\OneDrive\\Documents\\code\\.net\\net-rpg\\net-rpg.csproj",
         "packagesPath": "C:\\Users\\vagne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vagne\\OneDrive\\Documents\\code\\.net\\net-rpg\\obj\\",
+        "outputPath": "c:\\Users\\vagne\\OneDrive\\Documents\\code\\.net\\net-rpg\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

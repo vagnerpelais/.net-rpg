@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0wHrK/OfMQzUB3ILRHeVMDmUvr2YLR7/9vPZzVW3614mr73X448HxyKLH7t8vDff1nzFBnJ48UC0uywZ/ZiUjg==",
+  "dgSpecHash": "IbB1UEUBV71/QgVUAZksiBA1xatsjtT0Anamv72k3fKonQ4Ctx8JKa6jnzX9Si/kPY/vVtV4VaGlehvz6n/HMg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vagne\\OneDrive\\Documents\\code\\.net\\net-rpg\\net-rpg.csproj",
+  "projectFilePath": "c:\\Users\\vagne\\OneDrive\\Documents\\code\\.net\\net-rpg\\net-rpg.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vagne\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\vagne\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

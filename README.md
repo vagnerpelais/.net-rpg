@@ -62,6 +62,14 @@ Update an existing character.
 
 Delete a character by ID.
 
+- `POST` /api/auth/register
+
+Register a new user
+
+- `POST` /api/auth/login
+
+Verify the username and password and returns a token
+
 ## Technologies Used
 
 - ASP.NET Core
