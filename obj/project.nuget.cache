@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "nVp3rtJuAw/FMKKr7nIOCw2pmMlsdlLtCbUd1mpAEo/hGV8Do+Tkr68X+vZUR7XMS2kDmzEdIKScETFwBFksWw==",
+  "dgSpecHash": "zCGmzRimrTSjP9ac25Oo0KsxTQIvQjrGZdWgVv4b0SX/Gv4T5ldRhkrGmjH+t4GR9VB3WJRGcq1A7p4VTl4rBQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\vagne\\OneDrive\\Documents\\code\\.net\\net-rpg\\net-rpg.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vagne\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\vagne\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\vagne\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\vagne\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\vagne\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.9\\microsoft.aspnetcore.openapi.7.0.9.nupkg.sha512",
     "C:\\Users\\vagne\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

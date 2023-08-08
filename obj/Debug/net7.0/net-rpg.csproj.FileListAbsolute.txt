@@ -43,3 +43,4 @@ C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\Mono.TextTe
 C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\System.CodeDom.dll
 C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\Npgsql.dll
 C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\vagne\OneDrive\Documents\code\.net\net-rpg\bin\Debug\net7.0\BCrypt.Net-Next.dll
