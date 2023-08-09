@@ -78,3 +78,6 @@ Verify the username and password and returns a token
 - PostgreSQL
 - Docker
 - Swagger (OpenAPI)
+
+
+  Adding token auth soon...
